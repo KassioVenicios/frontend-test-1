@@ -37,3 +37,15 @@ Run project using npm:
 Run project using yarn:
 
 > yarn start
+
+## Build to production
+
+Build react app:
+
+> yarn build
+
+Build storybook app:
+
+> yarn run build-storybook
+
+To build with npm, using `npm` instead of `yarn` in the commands above.
