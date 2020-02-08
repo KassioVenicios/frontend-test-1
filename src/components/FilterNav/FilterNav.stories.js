@@ -1,6 +1,9 @@
 import React from 'react';
 import FilterNav from './index';
 
-export default { title: 'FilterNav' };
+export default {
+  component: FilterNav,
+  title: 'Components/FilterNav',
+};
 
 export const Default = () => <FilterNav />;

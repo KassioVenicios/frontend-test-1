@@ -1,6 +1,9 @@
 import React from 'react';
 import Header from './index';
 
-export default { title: 'Header' };
+export default {
+  component: Header,
+  title: 'Components/Header',
+};
 
 export const Default = () => <Header />;
