@@ -1,7 +1,9 @@
 {
   "scripts": {
     "start": "react-scripts start",
-    "storybook": "start-storybook"
+    "build": "react-scripts build",
+    "storybook": "start-storybook",
+    "build-storybook": "build-storybook -c .storybook -o .out"
   },
   "dependencies": {
     "react": "^16.12.0",
