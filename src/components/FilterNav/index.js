@@ -1,6 +1,8 @@
 import React from 'react';
 import FilterClear from '../FilterClear';
 import FilterOpenNow from '../FilterOpenNow';
+import FilterPrice from '../FilterPrice';
+import FilterCategories from '../FilterCategories';
 import './style.css';
 
 function FilterNav() {
@@ -9,8 +11,10 @@ function FilterNav() {
     <nav className='filter-nav'>
       <div className='container'>
         <div className='content'>
-          <span>Filter By:</span>
+          <span className='by'>Filter By:</span>
           <FilterOpenNow />
+          <FilterPrice />
+          <FilterCategories />
           <FilterClear disabled={true} />
         </div>
       </div>

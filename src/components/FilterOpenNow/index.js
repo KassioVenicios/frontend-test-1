@@ -4,9 +4,9 @@ import './style.css';
 function FilterOpenNow() {
 
   return (
-    <div className="open-now">
+    <div className="filter open-now">
       <input id='openNow' type='checkbox' />
-      <label for='openNow'>Open Now</label>
+      <label htmlFor='openNow'>Open Now</label>
     </div>
   );
 }

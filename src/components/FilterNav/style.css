@@ -14,7 +14,7 @@ nav.filter-nav .content > * {
   display: inline-block;
 }
 
-nav.filter-nav span {
+nav.filter-nav span.by {
   color: #606060;
   font-size: 16px;
   line-height: 36px;
