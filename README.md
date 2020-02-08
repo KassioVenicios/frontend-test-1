@@ -1,6 +1,8 @@
 # Restaurants (Frontend Test: React)
 
-Online in:
+Based on: [https://github.com/smartercode/frontend-test](https://github.com/smartercode/frontend-test)
+
+Online at:
 
 Site: [https://restaurants-frontend-test.netlify.com/](https://restaurants-frontend-test.netlify.com/)
 
