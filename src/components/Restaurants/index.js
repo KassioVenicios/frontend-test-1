@@ -64,7 +64,7 @@ function Restaurants() {
 
   return (
     <section className='container'>
-      <header className='restaurants'>
+      <section className='restaurants'>
         <h2>All Restaurants</h2>
         <div className='restaurants-list'>
         {
@@ -73,7 +73,10 @@ function Restaurants() {
           ))
         }
         </div>
-      </header>
+        <div className='load-more'>
+          Load More
+        </div>
+      </section>
     </section>
   );
 }
