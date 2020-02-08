@@ -1,0 +1,77 @@
+header.restaurant div.restaurant-name {
+  color: #333333;
+  font-size: 54px;
+  font-weight: 300;
+  letter-spacing: 0.96px;
+  line-height: 64px;
+  margin: 32px 0 16px;
+}
+
+header.restaurant div.restaurant-info {
+  margin: 16px 0 32px 0;
+}
+
+header.restaurant div.restaurant-info span {
+  color: #666;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 32px;
+  letter-spacing: 0.92px;
+}
+
+header.restaurant div.restaurant-info span.right {
+  float: right;
+}
+
+header.restaurant div.restaurant-info span.right:before {
+  content: '';
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  margin: -5px 8px;
+  display: inline-block;
+  line-height: 22px;
+}
+
+header.restaurant div.restaurant-info span.right.open:before {
+  background-color: #00e8a4;
+}
+
+header.restaurant div.restaurant-info span.right.closed:before {
+  background-color: #ff3548;
+}
+
+section.location {
+  padding: 48px 0 92px;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+section.location .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+section.location .map {
+  width: 50%;
+  height: 230px;
+  position: relative;
+  background-image: url(../../imgs/map.png);
+}
+
+section.location .map span.location-name {
+  position: absolute;
+  bottom: -40px;
+  color: #000;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 28px;
+  letter-spacing: 1px;
+}
+
+section.location figure {
+  margin: 0;
+  width: 22%;
+  height: 230px;
+  background-color: #d6d6d6;
+}
