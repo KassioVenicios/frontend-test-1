@@ -4,7 +4,7 @@ header h1 {
   letter-spacing: 0.96px;
   font-size: 54px;
   font-weight: 300;
-  font-family: "Helvetica Neue";
+  margin: 32px 0;
 }
 
 header h2 {
@@ -14,5 +14,5 @@ header h2 {
   letter-spacing: 0.92px;
   font-size: 22px;
   font-weight: 300;
-  font-family: "Helvetica Neue";
+  margin: 32px 0;
 }
