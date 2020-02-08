@@ -20,6 +20,32 @@ export default [{
   priceRange: '$$$',
   images: [],
   locationName: '624 S La Brea Ave Los Angeles, CA 90036',
+  reviews: [{
+    username: 'Brian B.',
+    date: '10/9/2018',
+    rating: 4,
+    message: [
+      `Don't be fooled by the French name, this place oozes with Californian flair. Their space is phenomenal: bright, warm colors yet clean and inviting. I've been twice for brunch and both times have been incredible! On our next trip to LA, I should really check out dinner since they seem to do more classic French preparations at that time.`,
+      `For brunch, drool over the cast-iron pots of shakshouka, perfectly jiggly eggs over kimchi fried rice, marvel at their artful breakfast toasts and do good by ordering a fresh squeezed green juice. You'll need it to feel less guilty when you devour their sweet sticky bun or their creamy delicious Hazelnut puffs. OMG. I'm still dreaming about those cream puffs right now ...`,
+      `Calories be damned.`,
+    ],
+  }, {
+    username: 'Mary M.',
+    date: '10/9/2018',
+    rating: 4,
+    message: [
+      `Cute atmosphere and very friendly workers! It even gets pretty busy during weekday lunch.`,
+      `I got the kale salad which I thought was just OK. It was a bit salty for me. I also wanted a piece of bread because they look so delicious, but you have to pay extra for that. The person that I was with got the kimchi fried rice. He liked it, but I'm Korean and I make mine way better.`,
+      `I don't really get the hype, but I'll come back for dinner if the wait isn't too long.`,
+    ],
+  }, {
+    username: 'Kate K.',
+    date: '10/4/2018',
+    rating: 3,
+    message: [
+      `I was aiming to come for dinner but only had time to visit for brunch and I'm completely disappointed. I had such high expectations for this place but left upset.`,
+    ],
+  }],
 }, {
   name: 'Restaurant 4',
   rating: 3.5,

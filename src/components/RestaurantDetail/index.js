@@ -1,5 +1,6 @@
 import React from 'react';
 import StarRatings from 'react-star-ratings';
+import RestaurantReviews from '../RestaurantReviews';
 import './style.css';
 
 function RestaurantDetail({ restaurant }) {
@@ -46,6 +47,7 @@ function RestaurantDetail({ restaurant }) {
         </figure>
       </div>
     </section>
+    <RestaurantReviews reviews={restaurant.reviews}/>
     </>
   );
 }
