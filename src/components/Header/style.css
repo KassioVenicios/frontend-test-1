@@ -1,0 +1,18 @@
+header h1 {
+  color: #333333;
+  line-height: 64px;
+  letter-spacing: 0.96px;
+  font-size: 54px;
+  font-weight: 300;
+  font-family: "Helvetica Neue";
+}
+
+header h2 {
+  width: 800px;
+  color: #666666;
+  line-height: 32px;
+  letter-spacing: 0.92px;
+  font-size: 22px;
+  font-weight: 300;
+  font-family: "Helvetica Neue";
+}
