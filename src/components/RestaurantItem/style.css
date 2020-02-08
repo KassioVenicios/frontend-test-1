@@ -1,6 +1,5 @@
 article.restaurant {
-  width: 320px;
-  height: 450px;
+  width: 22%;
   position: relative;
   margin-bottom: 64px;
 }
@@ -20,7 +19,7 @@ article.restaurant div.restaurant-name {
 }
 
 article.restaurant div.restaurant-info {
-  margin: 16px 0;
+  margin: 16px 0 64px 0;
 }
 
 article.restaurant div.restaurant-info span {
@@ -43,7 +42,6 @@ article.restaurant div.restaurant-info span.right:before {
   margin: 1px 4px;
   display: inline-block;
   line-height: 8px;
-  background-color: #00e8a4;
 }
 
 article.restaurant div.restaurant-info span.right.open:before {
@@ -51,7 +49,7 @@ article.restaurant div.restaurant-info span.right.open:before {
 }
 
 article.restaurant div.restaurant-info span.right.closed:before {
-  background-color: #ff3548;;
+  background-color: #ff3548;
 }
 
 article.restaurant div.learn-more {

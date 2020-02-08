@@ -30,7 +30,7 @@ function RestaurantItem({ restaurant }) {
         </span>
       </div>
       <div className='learn-more'>
-        <span>Lean More</span>
+        <span>Learn More</span>
       </div>
     </article>
   );
