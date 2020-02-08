@@ -1,0 +1,19 @@
+header.restaurants {
+  padding: 64px 0;
+}
+
+header.restaurants h2 {
+  height: 40px;
+  color: #333;
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 40px;
+  letter-spacing: 1px;
+  margin: 0 0 40px;
+}
+
+header.restaurants .restaurants-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
