@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterClear from '../FilterClear';
 import './style.css';
 
 function FilterNav() {
@@ -8,6 +9,7 @@ function FilterNav() {
       <div className="container">
         <div className="content">
           <span>Filter By:</span>
+          <FilterClear disabled={true} />
         </div>
       </div>
     </nav>

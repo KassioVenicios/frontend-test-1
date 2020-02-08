@@ -5,14 +5,18 @@ nav {
 }
 
 nav .content {
-  height: 24px;
-  margin: 28px 0;
+  height: 36px;
+  margin: 22px 0;
   width: 100%;
+}
+
+nav .content > * {
+  display: inline-block;
 }
 
 nav span {
   color: #606060;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 36px;
   letter-spacing: 1px;
 }
