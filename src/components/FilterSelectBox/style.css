@@ -29,6 +29,7 @@ div.select-box:before {
 }
 
 div.select-box div.dropdown {
+  z-index: 1;
   width: 100%;
   position: absolute;
   background-color: #fff;
