@@ -1,0 +1,38 @@
+div.open-now {
+  margin: 0 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #c8c8c8;
+}
+
+div.open-now input {
+  appearance: none;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin: 4px 8px -3px 0;
+  border: 1px solid #c8c8c8;
+  background-color: #ffffff;
+  position: relative;
+}
+
+div.open-now input:checked:after {
+  content: ' ';
+  width: 7px;
+  height: 7px;
+  top: 2px;
+  left: 2px;
+  border: 1px solid #002b56;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #002b56;
+}
+
+div.open-now label {
+  height: 18px;
+  color: #002b56;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 16px;
+  cursor: pointer;
+}
