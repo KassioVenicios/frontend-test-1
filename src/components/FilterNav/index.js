@@ -5,8 +5,8 @@ function FilterNav() {
 
   return (
     <nav>
-      <div class="container">
-        <div class="content">
+      <div className="container">
+        <div className="content">
           <span>Filter By:</span>
         </div>
       </div>

@@ -4,7 +4,7 @@ import './style.css';
 function Header() {
 
   return (
-    <header class="container">
+    <header className="container">
       <h1>Restaurants</h1>
       <h2>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
