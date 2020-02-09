@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FilterSelectBox from '../FilterSelectBox';
+import { categoriesSearch } from '../../services/api';
 import './style.css';
 
 function FilterCategories() {
 
-  let datasource = [
-    { value: 'All', text: 'All' },
-    { value: 'Italian', text: 'Italian' },
-    { value: 'Seafood', text: 'Seafood' },
-    { value: 'Steakhouses', text: 'Steakhouses' },
-    { value: 'Japanese', text: 'Japanese' },
-    { value: 'American', text: 'American' },
-    { value: 'Mexican', text: 'Mexican' },
-    { value: 'Thai', text: 'Thai' },
-  ];
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    async function loadCategories() {
+      const data = await categoriesSearch();
+      setCategories(data);
+    }
+    loadCategories();
+  }, []);
 
   return (
     <FilterSelectBox
-      width={200}
+      width={280}
       placeholder='Categories'
-      datasource={datasource}
+      datasource={categories}
     />
   );
 }
