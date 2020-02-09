@@ -19,6 +19,8 @@ article.restaurant div.restaurant-name {
 }
 
 article.restaurant div.restaurant-info {
+  display: flex;
+  justify-content: space-between;
   margin: 16px 0 64px 0;
 }
 

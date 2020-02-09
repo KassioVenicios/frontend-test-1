@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import RestaurantItem from '../RestaurantItem';
-import restaurants from '../../utils/restaurants';
+import { businessesSearch } from '../../services/api';
 import './style.css';
 
 function Restaurants() {
+
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    async function loadRestaurants() {
+      const response = await businessesSearch('restaurants');
+      setRestaurants(response.data.businesses);
+    }
+    loadRestaurants();
+  }, []);
 
   return (
     <section className='container'>
@@ -12,7 +22,7 @@ function Restaurants() {
         <div className='restaurants-list'>
         {
           restaurants.map(restaurant => (
-            <RestaurantItem key={restaurant.name} restaurant={restaurant} />
+            <RestaurantItem key={restaurant.id} restaurant={restaurant} />
           ))
         }
         </div>
