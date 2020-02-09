@@ -21,6 +21,21 @@ const priceFilter = [
   { value: [1, 2, 3, 4], text: '$$$$' },
 ];
 
+const categoriesSearch = async (parent_alias='restaurants') => {
+  try {
+    const response = await api.get('categories');
+    const categories = response.data.categories.filter(category => {
+      return category.parent_aliases.includes(parent_alias);
+    });
+    return categories.map(category => ({
+      value: category.alias,
+      text: category.title,
+    }))
+  } catch(error) {
+    return console.log(error);
+  }
+};
+
 const businessesSearch = async (term, location=defaultLocation, open_now=false, price=priceFilter[0].value) => {
   try {
     let url = 'businesses/search';
@@ -46,6 +61,7 @@ const businessesDetail = async id => {
 export {
   api,
   priceFilter,
+  categoriesSearch,
   businessesSearch,
   businessesDetail,
 };
