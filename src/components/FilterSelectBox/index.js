@@ -7,7 +7,9 @@ function FilterSelectBox({ width, placeholder, datasource }) {
 
   const dropDownStyle = {
     height: datasource.length * 48,
-    bottom: datasource.length * 48 * (-1),
+    overflowY: datasource.length > 8 ? 'scroll' : undefined,
+    bottom: datasource.length > 8 ? 8 * 48 * (-1) : datasource.length * 48 * (-1),
+    maxHeight: datasource.length > 8 ? 8 * 48 : undefined,
   };
 
   const closeDropdown = () => setClosed(!closed);
