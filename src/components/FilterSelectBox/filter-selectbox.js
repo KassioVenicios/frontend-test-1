@@ -1,44 +1,67 @@
-import React, { useState } from 'react';
-import './style.css';
+import React from 'react';
+import { RestaurantsContext } from '../../utils/restaurants-context';
+import './filter-selectbox.style.css';
 
-function FilterSelectBox({ width, placeholder, datasource }) {
+class FilterSelectBox extends React.Component {
 
-  const [closed, setClosed] = useState(true);
+  constructor(props) {
+    super(props);
+    this.state = {
+      closed: true,
+    };
+    this.state.dropDownStyle = {
+      height: props.datasource.length * 48,
+      overflowY: props.datasource.length > 8 ? 'scroll' : undefined,
+      bottom: props.datasource.length > 8 ? 8 * 48 * (-1) : props.datasource.length * 48 * (-1),
+      maxHeight: props.datasource.length > 8 ? 8 * 48 : undefined,
+    };
+  }
 
-  const dropDownStyle = {
-    height: datasource.length * 48,
-    overflowY: datasource.length > 8 ? 'scroll' : undefined,
-    bottom: datasource.length > 8 ? 8 * 48 * (-1) : datasource.length * 48 * (-1),
-    maxHeight: datasource.length > 8 ? 8 * 48 : undefined,
-  };
+  closeOpen() {
+    this.setState({
+      ...this.state,
+      closed: ! this.state.closed,
+    });
+  }
 
-  const closeDropdown = () => setClosed(!closed);
+  setSearchObj(option) {
+    let searchObj = {};
+    const prop = this.props.placeholder.toLowerCase();
+    searchObj[prop] = option.value;
+    return searchObj;
+  }
 
-  return (
+  render() {
+    const { width, placeholder, datasource } = this.props;
+    return (
       <div className='filter select-box' style={{width}}>
         <label
           className='placeholder'
-          onClick={closeDropdown}>
+          onClick={() => this.closeOpen()}>
             {placeholder}
         </label>
         {
-          !closed ?
-          <div className='dropdown' style={dropDownStyle}>
-            {
-              datasource.map(option =>
+          !this.state.closed ?
+          <div className='dropdown' style={this.state.dropDownStyle}>
+            <RestaurantsContext.Consumer>
+            { consume => (
+              datasource.map(option => (
                 <div
-                  className='dropdown-item'
                   key={option.value}
-                  value={option.value}>
+                  value={option.value}
+                  className='dropdown-item'
+                  onClick={() => consume.getRestaurants(this.setSearchObj(option))}>
                     <input type='checkbox'></input>
                     {option.text}
                 </div>
-              )
-            }
+              ))
+            )}
+            </RestaurantsContext.Consumer>
           </div> : null
         }
       </div>
-  );
+    );
+  }
 }
 
 export default FilterSelectBox;
