@@ -1,6 +1,7 @@
 import React from 'react';
 import { RestaurantsContext } from '../../utils/restaurants-context';
 import './filter-selectbox.style.css';
+import { FilterContext } from '../../utils/filter-context';
 
 class FilterSelectBox extends React.Component {
 
@@ -24,11 +25,10 @@ class FilterSelectBox extends React.Component {
     });
   }
 
-  setSearchObj(option) {
-    let searchObj = {};
+  setSearchObj(filterConsume, option) {
     const prop = this.props.placeholder.toLowerCase();
-    searchObj[prop] = option.value;
-    return searchObj;
+    filterConsume[prop] = option.value;
+    return filterConsume;
   }
 
   render() {
@@ -44,16 +44,22 @@ class FilterSelectBox extends React.Component {
           !this.state.closed ?
           <div className='dropdown' style={this.state.dropDownStyle}>
             <RestaurantsContext.Consumer>
-            { consume => (
+            { restaurantConsume => (
               datasource.map(option => (
-                <div
-                  key={option.value}
-                  value={option.value}
-                  className='dropdown-item'
-                  onClick={() => consume.getRestaurants(this.setSearchObj(option))}>
-                    <input type='checkbox'></input>
-                    {option.text}
-                </div>
+                <FilterContext.Consumer>
+                  { filterConsume => (
+                    <div
+                      key={option.value}
+                      value={option.value}
+                      className='dropdown-item'
+                      onClick={() => restaurantConsume.getRestaurants(
+                        this.setSearchObj(filterConsume, option)
+                      )}>
+                        <input type='checkbox'></input>
+                        {option.text}
+                    </div>
+                  )}
+                </FilterContext.Consumer>
               ))
             )}
             </RestaurantsContext.Consumer>
