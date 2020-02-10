@@ -1,27 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import FilterSelectBox from '../FilterSelectBox';
+import React from 'react';
+import FilterSelectBox from '../FilterSelectBox/filter-selectbox';
 import { categoriesSearch } from '../../services/api';
 import './style.css';
 
-function FilterCategories() {
+class FilterCategories extends React.Component {
 
-  const [categories, setCategories] = useState([]);
+  constructor(props) {
+    super(props);
+    this.state = {
+      categories: [],
+    };
+  }
 
-  useEffect(() => {
-    async function loadCategories() {
-      const data = await categoriesSearch();
-      setCategories(data);
-    }
-    loadCategories();
-  }, []);
+  componentDidMount() {
+    this.loadCategories();
+  }
 
-  return (
-    <FilterSelectBox
-      width={280}
-      placeholder='Categories'
-      datasource={categories}
-    />
-  );
+  loadCategories() {
+    categoriesSearch().then(categories => {
+      this.setState({ categories });
+    });
+  }
+
+  render() {
+    return (
+      <>
+      {
+        this.state.categories.length > 0 ?
+          <FilterSelectBox
+            width={280}
+            placeholder='Categories'
+            datasource={this.state.categories}
+          />
+        : null
+      }
+      </>
+    );
+  }
 }
 
 export default FilterCategories;

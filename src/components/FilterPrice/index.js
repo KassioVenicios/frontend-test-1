@@ -1,17 +1,19 @@
 import React from 'react';
-import FilterSelectBox from '../FilterSelectBox';
+import FilterSelectBox from '../FilterSelectBox/filter-selectbox';
 import { priceFilter } from '../../services/api';
 import './style.css';
 
-function FilterPrice() {
+class FilterPrice extends React.Component {
 
-  return (
-    <FilterSelectBox
-      width={120}
-      placeholder='Price'
-      datasource={priceFilter}
-    />
-  );
+  render() {
+    return (
+      <FilterSelectBox
+        width={120}
+        placeholder='Price'
+        datasource={priceFilter}
+      />
+    );
+  }
 }
 
 export default FilterPrice;
