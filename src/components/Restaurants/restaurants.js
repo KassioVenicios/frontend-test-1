@@ -4,10 +4,6 @@ import './restaurants.style.css';
 
 class Restaurants extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { restaurants } = this.props;
     return (
