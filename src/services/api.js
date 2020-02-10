@@ -21,11 +21,17 @@ const priceFilter = [
   { value: 4, text: '$$$$' },
 ];
 
+const restrictCategories = [
+  'Italian', 'Seafood', 'Steakhouses',
+  'Japanese', 'American (New)', 'Mexican', 'Thai',
+];
+
 const categoriesSearch = async (parent_alias='restaurants') => {
   try {
     const response = await api.get('categories');
     let categories = response.data.categories.filter(category => {
-      return category.parent_aliases.includes(parent_alias);
+      return category.parent_aliases.includes(parent_alias) &&
+        restrictCategories.includes(category.title);
     });
     categories = categories.map(category => ({
       value: category.alias,
