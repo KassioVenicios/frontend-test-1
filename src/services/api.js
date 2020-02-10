@@ -3,7 +3,7 @@ import axios from 'axios';
 const defaultLimit = 8;
 const defaultLocation = 'Las Vegas';
 const yelp = 'http://api.yelp.com/v3';
-const proxy = 'http://cors-anywhere.herokuapp.com';
+const proxy = 'https://cors-anywhere.herokuapp.com';
 const token = 'Bearer av1sVZCD8sdwINxL1hzKwi-819wCFfxJqkZ1Dce6EUhpAndRBnsevcHV64tZllja7jgSdbIhc_mf8kWSAvec96E1CpLPBATWwmt77y3iu3i5BddxRVTiUFEPTf0_XnYx';
 
 const api = axios.create({
