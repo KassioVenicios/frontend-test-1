@@ -1,7 +1,7 @@
 import React from 'react';
 import FilterSelectBox from '../FilterSelectBox/filter-selectbox';
 import { categoriesSearch } from '../../services/api';
-import './style.css';
+import './filter-categories.style.css';
 
 class FilterCategories extends React.Component {
 

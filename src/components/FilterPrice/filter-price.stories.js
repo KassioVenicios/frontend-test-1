@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterPrice from './index';
+import FilterPrice from './filter-price';
 
 export default {
   component: FilterPrice,
