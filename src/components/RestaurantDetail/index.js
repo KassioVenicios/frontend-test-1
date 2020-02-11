@@ -1,5 +1,5 @@
 import React from 'react';
-import StarRatings from 'react-star-ratings';
+import StarRatings from '../StarRatings/star-ratings';
 import RestaurantReviews from '../RestaurantReviews';
 import './style.css';
 
