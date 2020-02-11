@@ -1,38 +1,37 @@
 div.open-now {
+  cursor: pointer;
   margin: 0 16px;
   padding-bottom: 6px;
   border-bottom: 1px solid #c8c8c8;
 }
 
-div.open-now input {
-  appearance: none;
-  cursor: pointer;
+div.open-now span.circle-bordered {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  border: 1px solid #c8c8c8;
+  display: inline-block;
+  margin: 4px 8px -3px 0;
+  border-radius: 50%;
+}
+
+div.open-now span.circle {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  margin: 4px 8px -3px 0;
-  border: 1px solid #c8c8c8;
-  background-color: #ffffff;
-  position: relative;
+  position: absolute;
+  box-sizing: border-box;
 }
 
-div.open-now input:checked:after {
-  content: ' ';
-  width: 7px;
-  height: 7px;
-  top: 2px;
-  left: 2px;
-  border: 1px solid #002b56;
-  border-radius: 50%;
-  position: absolute;
+div.open-now span.checked {
+  border: 3px solid #fff;
   background-color: #002b56;
 }
 
-div.open-now label {
+div.open-now span.label {
   height: 18px;
   color: #002b56;
   font-size: 16px;
   letter-spacing: 1px;
   line-height: 16px;
-  cursor: pointer;
 }
