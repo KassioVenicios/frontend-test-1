@@ -7,6 +7,7 @@ import restaurantsUtils from './utils/restaurants';
 import { businessesSearch } from './services/api';
 import { RestaurantsContext } from './utils/restaurants-context';
 import { FilterContext, filters } from './utils/filter-context';
+import deepCopy from './utils/deepCopy';
 import './fonts/helvetica-neue.ttf';
 import './App.css';
 import './Main.css';
@@ -16,18 +17,28 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.getRestaurants = (searchObj) => {
+    this.getRestaurants = searchObj => {
       businessesSearch(searchObj).then(response => {
         this.setState({
+          ...this.state,
           restaurants: response.data.businesses,
         });
       });
-    };
+    }
+
+    this.changeFilters = searchObj => {
+      this.getRestaurants(searchObj);
+      this.setState({
+        ...this.state,
+        filters: searchObj,
+      });
+    }
 
     this.state = {
       restaurants: [],
       getRestaurants: this.getRestaurants,
-      filters: filters.default,
+      filters: deepCopy(filters.default),
+      changeFilters: this.changeFilters,
     };
   }
 
@@ -37,11 +48,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <RestaurantsContext.Provider value={this.state}>
-        <FilterContext.Provider value={this.state.filters}>
+      <RestaurantsContext.Provider value={{
+        restaurants: this.state.restaurants,
+        getRestaurants: this.state.getRestaurants,
+      }}>
+        <FilterContext.Provider value={{
+          filters: this.state.filters,
+          changeFilters: this.state.changeFilters,
+        }}>
           <main>
             <Header />
-            <FilterNav applyFilters={() => {}} />
+            <FilterNav />
             <Restaurants restaurants={this.state.restaurants} />
           </main>
           </FilterContext.Provider>
