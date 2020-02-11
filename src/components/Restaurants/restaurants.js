@@ -1,5 +1,7 @@
 import React from 'react';
 import RestaurantItem from '../RestaurantItem';
+import { FilterContext, filters } from '../../utils/filter-context';
+import { priceFilter } from '../../services/api';
 import './restaurants.style.css';
 
 class Restaurants extends React.Component {
@@ -9,7 +11,19 @@ class Restaurants extends React.Component {
     return (
       <section className='container'>
         <section className='restaurants'>
-          <h2>All Restaurants</h2>
+          <FilterContext.Consumer>
+            { filterCtx => (
+              <h2>
+              {
+                filterCtx.filters.categories ?
+                filterCtx.filters.categories : 'All'
+              } Restaurants {
+                filterCtx.filters.price !== filters.default.price ?
+                '(' + priceFilter[filterCtx.filters.price].text + ')' : ''
+              }
+              </h2>
+            )}
+          </FilterContext.Consumer>
           <div className='restaurants-list'>
           {
             restaurants.map(restaurant => (
