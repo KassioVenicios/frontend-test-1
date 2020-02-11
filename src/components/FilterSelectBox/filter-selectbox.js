@@ -1,7 +1,6 @@
 import React from 'react';
-import { RestaurantsContext } from '../../utils/restaurants-context';
-import './filter-selectbox.style.css';
 import { FilterContext } from '../../utils/filter-context';
+import './filter-selectbox.style.css';
 
 class FilterSelectBox extends React.Component {
 
