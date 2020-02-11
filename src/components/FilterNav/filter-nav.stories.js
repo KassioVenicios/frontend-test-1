@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterNav from './index';
+import FilterNav from './filter-nav';
 
 export default {
   component: FilterNav,

@@ -1,9 +1,9 @@
 import React from 'react';
 import FilterClear from '../FilterClear/filter-clear';
-import FilterOpenNow from '../FilterOpenNow';
+import FilterOpenNow from '../FilterOpenNow/filter-open-now';
 import FilterPrice from '../FilterPrice/filter-price';
 import FilterCategories from '../FilterCategories/filter-categories';
-import './style.css';
+import './filter-nav.style.css';
 
 function FilterNav() {
 

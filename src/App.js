@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header/header';
-import FilterNav from './components/FilterNav';
+import FilterNav from './components/FilterNav/filter-nav';
 import Restaurants from './components/Restaurants/restaurants';
 import RestaurantDetail from './components/RestaurantDetail';
 import restaurantsUtils from './utils/restaurants';
