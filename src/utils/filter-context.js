@@ -13,6 +13,12 @@ export const filters = {
   },
 };
 
+export const isDefaultFilter = currentFilter => (
+  filters.default.categories === currentFilter.categories &&
+  filters.default.price === currentFilter.price &&
+  filters.default.open_now === currentFilter.open_now
+);
+
 export const FilterContext = React.createContext({
   filters: deepCopy(filters.default),
   changeFilters: (searchObj) => {},
