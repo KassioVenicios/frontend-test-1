@@ -11,6 +11,7 @@ import deepCopy from './utils/deepCopy';
 import './fonts/helvetica-neue.ttf';
 import './App.css';
 import './Main.css';
+import './Checkbox.css';
 
 class App extends React.Component {
 

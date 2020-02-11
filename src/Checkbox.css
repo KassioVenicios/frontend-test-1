@@ -1,0 +1,29 @@
+span.circle-bordered {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  border: 1px solid #c8c8c8;
+  display: inline-block;
+  margin: 4px 8px -3px 0;
+  border-radius: 50%;
+}
+
+span.circle-bordered span.circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+span.circle-bordered span.checked {
+  border: 3px solid #fff;
+  background-color: #002b56;
+}
+
+span.circle-bordered + span.label {
+  height: 18px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 16px;
+}
