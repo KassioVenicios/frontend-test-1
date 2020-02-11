@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterClear from '../FilterClear';
+import FilterClear from '../FilterClear/filter-clear';
 import FilterOpenNow from '../FilterOpenNow';
 import FilterPrice from '../FilterPrice/filter-price';
 import FilterCategories from '../FilterCategories/filter-categories';
@@ -15,7 +15,7 @@ function FilterNav() {
           <FilterOpenNow />
           <FilterPrice />
           <FilterCategories />
-          <FilterClear disabled={true} />
+          <FilterClear />
         </div>
       </div>
     </nav>
