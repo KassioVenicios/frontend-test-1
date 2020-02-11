@@ -1,27 +1,31 @@
 import React from 'react';
 import './filter-open-now.style.css';
+import { FilterContext } from '../../utils/filter-context';
 
 class FilterOpenNow extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      checked: false,
-    };
-  }
-
-  check() {
-    this.setState({ checked: !this.state.checked });
+  check(context) {
+    let filters = context.filters;
+    filters.open_now = !context.filters.open_now;
+    context.changeFilters(filters);
   }
 
   render() {
     return (
-      <div className='filter open-now' onClick={() => this.check()}>
-        <span className='circle-bordered'>
-          <span className={this.state.checked ? 'circle checked' : ''}></span>
-        </span>
-        <span className='label'>Open Now</span>
-      </div>
+      <FilterContext.Consumer>
+        {filterCtx => (
+          <div className='filter open-now'
+            onClick={() => this.check(filterCtx)}>
+            <span className='circle-bordered'>
+              <span className={
+                filterCtx.filters.open_now ?
+                'circle checked' : ''
+              }></span>
+            </span>
+            <span className='label'>Open Now</span>
+          </div>
+        )}
+      </FilterContext.Consumer>
     );
   }
 }
