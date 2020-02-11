@@ -5,21 +5,23 @@ import FilterPrice from '../FilterPrice/filter-price';
 import FilterCategories from '../FilterCategories/filter-categories';
 import './filter-nav.style.css';
 
-function FilterNav() {
+class FilterNav extends React.Component {
 
-  return (
-    <nav className='filter-nav'>
-      <div className='container'>
-        <div className='content'>
-          <span className='by'>Filter By:</span>
-          <FilterOpenNow />
-          <FilterPrice />
-          <FilterCategories />
-          <FilterClear />
+  render() {
+    return (
+      <nav className='filter-nav'>
+        <div className='container'>
+          <div className='content'>
+            <span className='by'>Filter By:</span>
+            <FilterOpenNow />
+            <FilterPrice />
+            <FilterCategories />
+            <FilterClear />
+          </div>
         </div>
-      </div>
-    </nav>
-  );
+      </nav>
+    );
+  }
 }
 
 export default FilterNav;
