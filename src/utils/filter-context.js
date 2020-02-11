@@ -9,7 +9,7 @@ export const filters = {
     open_now: false,
     limit: 8,
     price: priceFilter[0].value,
-    categories: undefined,
+    categories: '',
   },
 };
 
