@@ -1,13 +1,15 @@
 import React from 'react';
 import StarRatings from '../StarRatings/star-ratings';
-import { businessesDetail } from '../../services/api';
+import { businessesDetail, businessesReviews } from '../../services/api';
 import './style.css';
 
 function RestaurantItem({ restaurant, selectRestaurant }) {
 
   function restaurantDetail(id) {
-    businessesDetail(id).then(response => {
-      selectRestaurant(response.data);
+    businessesDetail(id).then(responseDetail => {
+      businessesReviews(id).then(responseReviews => {
+        selectRestaurant(responseDetail.data, responseReviews.data.reviews);
+      })
     });
   }
 

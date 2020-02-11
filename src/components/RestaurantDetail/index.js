@@ -37,7 +37,7 @@ function RestaurantDetail({ restaurant }) {
         </figure>
       </div>
     </section>
-    {/* <RestaurantReviews reviews={restaurant.reviews}/> */}
+    <RestaurantReviews reviews={restaurant.reviews}/>
     </>
   );
 }

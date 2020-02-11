@@ -11,24 +11,20 @@ function RestaurantReviews({ reviews }) {
       </div>
       {
         reviews.map((review, i) => (
-          <div key={review.username} className='review'>
+          <div key={review.id} className='review'>
             <div className='reviewer'>
               <figure>
-                <img src='' alt='' />
+                <div style={styles(review.user.image_url)}></div>
               </figure>
               <div className='reviewer-info'>
-                <div className='reviewer-name'>{review.username}</div>
-                <div className='reviewer-date'>{review.date}</div>
+                <div className='reviewer-name'>{review.user.name}</div>
+                <div className='reviewer-date'>{review.time_created}</div>
               </div>
             </div>
             <div className='review-body'>
               <StarRatings rating={review.rating}/>
               <div className='message'>
-                {
-                  review.message.map(msg => (
-                    <div key={msg}>{msg}</div>
-                  ))
-                }
+                {review.text}
               </div>
             </div>
             {
@@ -46,5 +42,12 @@ function RestaurantReviews({ reviews }) {
     </section>
   );
 }
+
+const styles = photoUrl => ({
+  width: '100%',
+  height: '100%',
+  backgroundSize: 'cover',
+  backgroundImage: `url(${photoUrl})`,
+});
 
 export default RestaurantReviews;

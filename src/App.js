@@ -43,10 +43,13 @@ class App extends React.Component {
       });
     }
 
-    this.selectRestaurant = restaurant => {
+    this.selectRestaurant = (restaurant, reviews) => {
       this.setState({
         ...this.state,
-        selectedRestaurant: restaurant,
+        selectedRestaurant: {
+          reviews,
+          ...restaurant,
+        },
       });
     }
 
@@ -65,6 +68,7 @@ class App extends React.Component {
   render() {
     return (
       <>
+      { !this.state.selectedRestaurant ?
         <FilterContext.Provider value={{
           filters: this.state.filters,
           changeFilters: this.state.changeFilters,
@@ -76,13 +80,12 @@ class App extends React.Component {
               restaurants={this.state.restaurants}
               selectRestaurant={this.selectRestaurant} />
           </main>
-          </FilterContext.Provider>
+        </FilterContext.Provider>
+        :
         <section className='modal'>
-          { this.state.selectedRestaurant ?
-            <RestaurantDetail restaurant={this.state.selectedRestaurant}/>
-            : null
-          }
+          <RestaurantDetail restaurant={this.state.selectedRestaurant}/>
         </section>
+      }
       </>
     );
   }

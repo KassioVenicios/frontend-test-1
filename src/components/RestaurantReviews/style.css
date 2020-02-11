@@ -57,8 +57,5 @@ section.reviews div.review div.review-body div.message {
   font-weight: 300;
   line-height: 28px;
   letter-spacing: 1px;
-}
-
-section.reviews div.review div.review-body div.message div {
   margin: 24px 0;
 }
