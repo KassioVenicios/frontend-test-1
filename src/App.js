@@ -20,10 +20,20 @@ class App extends React.Component {
 
     this.getRestaurants = searchObj => {
       businessesSearch(searchObj).then(response => {
-        this.setState({
-          ...this.state,
-          restaurants: response.data.businesses,
-        });
+        if (searchObj && searchObj.offset > 0) {
+          this.setState({
+            ...this.state,
+            restaurants: [
+              ...this.state.restaurants,
+              ...response.data.businesses
+            ],
+          });
+        } else {
+          this.setState({
+            ...this.state,
+            restaurants: response.data.businesses,
+          });
+        }
       });
     }
 

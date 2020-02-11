@@ -31,9 +31,17 @@ class Restaurants extends React.Component {
             ))
           }
           </div>
-          <div className='load-more'>
-            Load More
-          </div>
+          <FilterContext.Consumer>
+            { filterCtx => (
+              <div className='load-more' onClick={() => {
+                let filters = filterCtx.filters;
+                filters.offset += filters.limit;
+                filterCtx.changeFilters(filters);
+              }}>
+                Load More
+              </div>
+            )}
+          </FilterContext.Consumer>
         </section>
       </section>
     );

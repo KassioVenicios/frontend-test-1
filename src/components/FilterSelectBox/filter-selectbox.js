@@ -27,6 +27,7 @@ class FilterSelectBox extends React.Component {
   setSearchObj(filterConsume, option) {
     const prop = this.props.placeholder.toLowerCase();
     filterConsume[prop] = option.value;
+    filterConsume.offset = 0;
     return filterConsume;
   }
 

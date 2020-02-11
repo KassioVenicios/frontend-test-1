@@ -47,6 +47,7 @@ export const businessesSearch = async searchObj => {
     limit: searchObj.limit || filters.default.limit,
     price: searchObj.price || filters.default.price,
     categories: searchObj.categories || filters.default.categories,
+    offset: searchObj.offset || filters.default.offset,
   };
   try {
     let url = 'businesses/search';
@@ -55,6 +56,7 @@ export const businessesSearch = async searchObj => {
     url = url.concat(`&limit=${searchParams.limit}`);
     url = url.concat(`&open_now=${searchParams.open_now}`);
     url = url.concat(`&price=${searchParams.price}`);
+    url = url.concat(`&offset=${searchParams.offset}`);
     url = url.concat(searchParams.categories ?
       `&categories=${searchParams.categories}` : ''
     );

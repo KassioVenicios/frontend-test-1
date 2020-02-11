@@ -7,6 +7,7 @@ class FilterOpenNow extends React.Component {
   check(context) {
     let filters = context.filters;
     filters.open_now = !context.filters.open_now;
+    filters.offset = 0;
     context.changeFilters(filters);
   }
 

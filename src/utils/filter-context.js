@@ -17,6 +17,7 @@ export const filters = {
     limit: 8,
     price: priceFilter[0].value,
     categories: '',
+    offset: 0,
   },
 };
 
