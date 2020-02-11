@@ -7,7 +7,7 @@ import './restaurants.style.css';
 class Restaurants extends React.Component {
 
   render() {
-    const { restaurants } = this.props;
+    const { restaurants, selectRestaurant } = this.props;
     return (
       <section className='container'>
         <section className='restaurants'>
@@ -27,7 +27,10 @@ class Restaurants extends React.Component {
           <div className='restaurants-list'>
           {
             restaurants.map(restaurant => (
-              <RestaurantItem key={restaurant.id} restaurant={restaurant} />
+              <RestaurantItem
+                key={restaurant.id}
+                restaurant={restaurant}
+                selectRestaurant={selectRestaurant} />
             ))
           }
           </div>

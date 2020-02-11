@@ -3,11 +3,12 @@ import StarRatings from '../StarRatings/star-ratings';
 import { businessesDetail } from '../../services/api';
 import './style.css';
 
-function RestaurantItem({ restaurant }) {
+function RestaurantItem({ restaurant, selectRestaurant }) {
 
-  async function restaurantDetail(id) {
-    const response = await businessesDetail(id);
-    console.log(response);
+  function restaurantDetail(id) {
+    businessesDetail(id).then(response => {
+      selectRestaurant(response.data);
+    });
   }
 
   return (

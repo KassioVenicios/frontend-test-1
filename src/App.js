@@ -3,7 +3,6 @@ import Header from './components/Header/header';
 import FilterNav from './components/FilterNav/filter-nav';
 import Restaurants from './components/Restaurants/restaurants';
 import RestaurantDetail from './components/RestaurantDetail';
-import restaurantsUtils from './utils/restaurants';
 import { businessesSearch } from './services/api';
 import { FilterContext, filters } from './utils/filter-context';
 import deepCopy from './utils/deepCopy';
@@ -44,10 +43,18 @@ class App extends React.Component {
       });
     }
 
+    this.selectRestaurant = restaurant => {
+      this.setState({
+        ...this.state,
+        selectedRestaurant: restaurant,
+      });
+    }
+
     this.state = {
       restaurants: [],
       filters: deepCopy(filters.default),
       changeFilters: this.changeFilters,
+      selectedRestaurant: null,
     };
   }
 
@@ -65,10 +72,17 @@ class App extends React.Component {
           <main>
             <Header />
             <FilterNav />
-            <Restaurants restaurants={this.state.restaurants} />
+            <Restaurants
+              restaurants={this.state.restaurants}
+              selectRestaurant={this.selectRestaurant} />
           </main>
           </FilterContext.Provider>
-        <RestaurantDetail restaurant={restaurantsUtils[2]} />
+        <section className='modal'>
+          { this.state.selectedRestaurant ?
+            <RestaurantDetail restaurant={this.state.selectedRestaurant}/>
+            : null
+          }
+        </section>
       </>
     );
   }

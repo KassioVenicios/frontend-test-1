@@ -14,10 +14,10 @@ function RestaurantDetail({ restaurant }) {
         <StarRatings starDimension='30px' rating={restaurant.rating}/>
         <div className='restaurant-info'>
           <span>
-            {restaurant.category[0]}&nbsp;•&nbsp;{restaurant.priceRange}
+            {restaurant.categories[0].title}&nbsp;•&nbsp;{restaurant.price}
           </span>
-          <span className={restaurant.openNow ? 'right open' : 'right closed' }>
-            {restaurant.openNow ? 'open now' : 'closed'}
+          <span className={!restaurant.is_closed ? 'right open' : 'right closed' }>
+            {!restaurant.is_closed ? 'open now' : 'closed'}
           </span>
         </div>
       </header>
@@ -26,20 +26,28 @@ function RestaurantDetail({ restaurant }) {
       <div className='container'>
         <div className='map'>
           <span className='location-name'>
-            {restaurant.locationName}
+            {restaurant.location.display_address.join(' ')}
           </span>
         </div>
         <figure>
-          <img src='' alt=''/>
+          <div style={styles(restaurant.photos[0])}></div>
         </figure>
         <figure>
-          <img src='' alt=''/>
+        <div style={styles(restaurant.photos[1])}></div>
         </figure>
       </div>
     </section>
-    <RestaurantReviews reviews={restaurant.reviews}/>
+    {/* <RestaurantReviews reviews={restaurant.reviews}/> */}
     </>
   );
 }
+
+const styles = photoUrl => ({
+  width: '100%',
+  height: '100%',
+  backgroundSize: 'cover',
+  backgroundImage: `url(${photoUrl})`,
+});
+
 
 export default RestaurantDetail;
