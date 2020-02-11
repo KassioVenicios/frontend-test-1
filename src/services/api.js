@@ -14,7 +14,7 @@ const api = axios.create({
 });
 
 const priceFilter = [
-  { value: [1,2,3,4], text: 'All' },
+  { value: '1,2,3,4', text: 'All' },
   { value: 1, text: '$' },
   { value: 2, text: '$$' },
   { value: 3, text: '$$$' },
