@@ -34,35 +34,34 @@ class FilterSelectBox extends React.Component {
   render() {
     const { width, placeholder, datasource } = this.props;
     return (
-      <div className='filter select-box' style={{width}}>
-        <label
-          className='placeholder'
-          onClick={() => this.closeOpen()}>
-            {placeholder}
+      <div style={{width}}
+        className='filter select-box'
+        onMouseEnter={() => this.closeOpen()}
+        onMouseLeave={() => this.closeOpen()}>
+        <label className='placeholder'>
+          {placeholder}
         </label>
         {
           !this.state.closed ?
           <div className='dropdown' style={this.state.dropDownStyle}>
-            <RestaurantsContext.Consumer>
-            { restaurantConsume => (
-              datasource.map(option => (
-                <FilterContext.Consumer>
-                  { filterConsume => (
-                    <div
-                      key={option.value}
-                      value={option.value}
-                      className='dropdown-item'
-                      onClick={() => restaurantConsume.getRestaurants(
-                        this.setSearchObj(filterConsume, option)
-                      )}>
-                        <input type='checkbox'></input>
-                        {option.text}
-                    </div>
-                  )}
-                </FilterContext.Consumer>
-              ))
-            )}
-            </RestaurantsContext.Consumer>
+            {datasource.map(option => (
+              <FilterContext.Consumer>
+                { filterCtx => (
+                  <div
+                    key={option.value}
+                    value={option.value}
+                    className='dropdown-item'
+                    onClick={() => {
+                      filterCtx.changeFilters(
+                        this.setSearchObj(filterCtx.filters, option)
+                      );
+                    }}>
+                      <input type='checkbox'></input>
+                      {option.text}
+                  </div>
+                )}
+              </FilterContext.Consumer>
+            ))}
           </div> : null
         }
       </div>
