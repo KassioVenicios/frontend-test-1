@@ -1,7 +1,6 @@
 import axios from 'axios';
+import { filters } from '../utils/filter-context';
 
-const defaultLimit = 8;
-const defaultLocation = 'Las Vegas';
 const yelp = 'http://api.yelp.com/v3';
 const proxy = 'https://cors-anywhere.herokuapp.com';
 const token = 'Bearer av1sVZCD8sdwINxL1hzKwi-819wCFfxJqkZ1Dce6EUhpAndRBnsevcHV64tZllja7jgSdbIhc_mf8kWSAvec96E1CpLPBATWwmt77y3iu3i5BddxRVTiUFEPTf0_XnYx';
@@ -13,46 +12,41 @@ const api = axios.create({
   },
 });
 
-const priceFilter = [
-  { value: '1,2,3,4', text: 'All' },
-  { value: 1, text: '$' },
-  { value: 2, text: '$$' },
-  { value: 3, text: '$$$' },
-  { value: 4, text: '$$$$' },
-];
-
 const restrictCategories = [
   'Italian', 'Seafood', 'Steakhouses',
   'Japanese', 'American (New)', 'Mexican', 'Thai',
 ];
 
-const categoriesSearch = async (parent_alias='restaurants') => {
+export const categoriesSearch = async () => {
   try {
     const response = await api.get('categories');
     let categories = response.data.categories.filter(category => {
-      return category.parent_aliases.includes(parent_alias) &&
+      return category.parent_aliases.includes(filters.default.term) &&
         restrictCategories.includes(category.title);
     });
     categories = categories.map(category => ({
       value: category.alias,
       text: category.title,
     }))
-    categories.unshift({ value: '', text: 'All' });
+    categories.unshift({
+      text: 'All',
+      value: filters.default.categories,
+    });
     return categories;
   } catch(error) {
     return console.log(error);
   }
 };
 
-const businessesSearch = async (searchObj) => {
+export const businessesSearch = async searchObj => {
   searchObj = searchObj || {};
   const searchParams = {
-    term: searchObj.term || 'restaurants',
-    location: searchObj.location || defaultLocation,
-    open_now: searchObj.open_now || false,
-    limit: searchObj.limit || defaultLimit,
-    price: searchObj.price || priceFilter[0].value,
-    categories: searchObj.categories || undefined,
+    term: searchObj.term || filters.default.term,
+    location: searchObj.location || filters.default.location,
+    open_now: searchObj.open_now || filters.default.open_now,
+    limit: searchObj.limit || filters.default.limit,
+    price: searchObj.price || filters.default.price,
+    categories: searchObj.categories || filters.default.categories,
   };
   try {
     let url = 'businesses/search';
@@ -61,25 +55,19 @@ const businessesSearch = async (searchObj) => {
     url = url.concat(`&limit=${searchParams.limit}`);
     url = url.concat(`&open_now=${searchParams.open_now}`);
     url = url.concat(`&price=${searchParams.price}`);
-    url = url.concat(searchParams.categories ? `&categories=${searchParams.categories}`: '');
+    url = url.concat(searchParams.categories ?
+      `&categories=${searchParams.categories}` : ''
+    );
     return api.get(url);
   } catch(error) {
     return console.log(error);
   }
 };
 
-const businessesDetail = async id => {
+export const businessesDetail = async id => {
   try {
     return await api.get(`businesses/${id}`);
   } catch(error) {
     return console.log(error);
   }
-};
-
-export {
-  api,
-  priceFilter,
-  categoriesSearch,
-  businessesSearch,
-  businessesDetail,
 };

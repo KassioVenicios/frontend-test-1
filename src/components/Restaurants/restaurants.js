@@ -1,7 +1,7 @@
 import React from 'react';
 import RestaurantItem from '../RestaurantItem';
 import { FilterContext, filters } from '../../utils/filter-context';
-import { priceFilter } from '../../services/api';
+import { priceFilter } from '../../utils/filter-context';
 import './restaurants.style.css';
 
 class Restaurants extends React.Component {

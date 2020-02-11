@@ -1,6 +1,13 @@
 import React from 'react';
-import { priceFilter } from '../services/api';
 import deepCopy from './deepCopy';
+
+export const priceFilter = [
+  { value: '1,2,3,4', text: 'All' },
+  { value: 1, text: '$' },
+  { value: 2, text: '$$' },
+  { value: 3, text: '$$$' },
+  { value: 4, text: '$$$$' },
+];
 
 export const filters = {
   default: {
