@@ -68,7 +68,15 @@ export const businessesSearch = async searchObj => {
 
 export const businessesDetail = async id => {
   try {
-    return await api.get(`businesses/${id}`);
+    return api.get(`businesses/${id}`);
+  } catch(error) {
+    return console.log(error);
+  }
+};
+
+export const businessesReviews = async id => {
+  try {
+    return api.get(`businesses/${id}/reviews`);
   } catch(error) {
     return console.log(error);
   }
