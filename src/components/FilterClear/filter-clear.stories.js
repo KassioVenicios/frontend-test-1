@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterClear from './index';
+import FilterClear from './filter-clear';
 
 export default {
   component: FilterClear,

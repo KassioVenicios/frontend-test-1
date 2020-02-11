@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterCategory from './index';
+import FilterCategory from './filter-categories';
 
 export default {
   component: FilterCategory,

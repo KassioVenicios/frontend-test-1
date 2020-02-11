@@ -1,0 +1,10 @@
+div.open-now {
+  cursor: pointer;
+  margin: 0 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #c8c8c8;
+}
+
+div.open-now span.label {
+  color: #002b56;
+}

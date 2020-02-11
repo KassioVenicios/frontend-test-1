@@ -10,6 +10,7 @@ section.restaurants h2 {
   line-height: 40px;
   letter-spacing: 1px;
   margin: 0 0 40px;
+  text-transform: capitalize;
 }
 
 section.restaurants .restaurants-list {

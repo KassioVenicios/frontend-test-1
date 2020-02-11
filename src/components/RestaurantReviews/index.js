@@ -36,7 +36,7 @@ function RestaurantReviews({ reviews }) {
               <div className='message'>
                 {
                   review.message.map(msg => (
-                    <div>{msg}</div>
+                    <div key={msg}>{msg}</div>
                   ))
                 }
               </div>

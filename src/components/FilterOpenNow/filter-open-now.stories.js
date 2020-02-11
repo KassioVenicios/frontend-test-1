@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterOpenNow from './index';
+import FilterOpenNow from './filter-open-now';
 
 export default {
   component: FilterOpenNow,

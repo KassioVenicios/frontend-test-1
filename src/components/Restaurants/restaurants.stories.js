@@ -1,5 +1,5 @@
 import React from 'react';
-import Restaurants from './index';
+import Restaurants from './restaurants';
 
 export default {
   component: Restaurants,
