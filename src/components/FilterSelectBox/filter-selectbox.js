@@ -44,10 +44,9 @@ class FilterSelectBox extends React.Component {
           !this.state.closed ?
           <div className='dropdown' style={this.state.dropDownStyle}>
             {datasource.map(option => (
-              <FilterContext.Consumer>
+              <FilterContext.Consumer key={option.value}>
                 { filterCtx => (
                   <div
-                    key={option.value}
                     value={option.value}
                     className='dropdown-item'
                     onClick={() => {
@@ -55,8 +54,13 @@ class FilterSelectBox extends React.Component {
                         this.setSearchObj(filterCtx.filters, option)
                       );
                     }}>
-                      <input type='checkbox'></input>
-                      {option.text}
+                    <span className='circle-bordered'>
+                      <span className={
+                        filterCtx.filters[placeholder.toLowerCase()] === option.value ?
+                        'circle checked' : ''
+                      }></span>
+                    </span>
+                    <span className='label'>{option.text}</span>
                   </div>
                 )}
               </FilterContext.Consumer>
