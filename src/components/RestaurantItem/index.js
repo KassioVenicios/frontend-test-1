@@ -1,5 +1,5 @@
 import React from 'react';
-import StarRatings from 'react-star-ratings';
+import StarRatings from '../StarRatings/star-ratings';
 import { businessesDetail } from '../../services/api';
 import './style.css';
 
@@ -16,17 +16,7 @@ function RestaurantItem({ restaurant }) {
         <div style={styles(restaurant)}></div>
       </figure>
       <div className='restaurant-name'>{restaurant.name}</div>
-      <StarRatings
-        name='rating'
-        starSpacing='2px'
-        starDimension='20px'
-        rating={restaurant.rating}
-        starRatedColor='#002b56'
-        starEmptyColor='#fff'
-        starStrokeColor='#002b56'
-        starStrokeWidth='3px'
-        numberOfStars={5}
-      />
+      <StarRatings rating={restaurant.rating}/>
       <div className='restaurant-info'>
         <span>
           {restaurant.categories[0].title}&nbsp;•&nbsp;{restaurant.price}

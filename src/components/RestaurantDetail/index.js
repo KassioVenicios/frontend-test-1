@@ -11,17 +11,7 @@ function RestaurantDetail({ restaurant }) {
         <div className='restaurant-name'>
           {restaurant.name}
         </div>
-        <StarRatings
-          name='rating'
-          starSpacing='2px'
-          starDimension='30px'
-          rating={restaurant.rating}
-          starRatedColor='#002b56'
-          starEmptyColor='#fff'
-          starStrokeColor='#002b56'
-          starStrokeWidth='3px'
-          numberOfStars={5}
-        />
+        <StarRatings starDimension='30px' rating={restaurant.rating}/>
         <div className='restaurant-info'>
           <span>
             {restaurant.category[0]}&nbsp;•&nbsp;{restaurant.priceRange}

@@ -1,5 +1,5 @@
 import React from 'react';
-import StarRatings from 'react-star-ratings';
+import StarRatings from '../StarRatings/star-ratings';
 import './style.css';
 
 function RestaurantReviews({ reviews }) {
@@ -22,17 +22,7 @@ function RestaurantReviews({ reviews }) {
               </div>
             </div>
             <div className='review-body'>
-              <StarRatings
-                name='rating'
-                starSpacing='2px'
-                starDimension='20px'
-                rating={review.rating}
-                starRatedColor='#002b56'
-                starEmptyColor='#fff'
-                starStrokeColor='#002b56'
-                starStrokeWidth='3px'
-                numberOfStars={5}
-              />
+              <StarRatings rating={review.rating}/>
               <div className='message'>
                 {
                   review.message.map(msg => (
