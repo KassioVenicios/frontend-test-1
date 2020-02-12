@@ -29,6 +29,7 @@ class App extends React.Component {
           this.setState({
             ...this.state,
             loadMore: false,
+            totalResults: response.data.total,
             restaurants: [
               ...this.state.restaurants,
               ...response.data.businesses
@@ -38,6 +39,7 @@ class App extends React.Component {
           this.setState({
             ...this.state,
             searching: false,
+            totalResults: response.data.total,
             restaurants: response.data.businesses,
           });
         }
@@ -70,6 +72,7 @@ class App extends React.Component {
       selectedRestaurant: null,
       searching: true,
       loadMore: false,
+      totalResults: 0,
     };
   }
 
@@ -92,6 +95,7 @@ class App extends React.Component {
               loadMore={this.state.loadMore}
               searching={this.state.searching}
               restaurants={this.state.restaurants}
+              totalResults={this.state.totalResults}
               selectRestaurant={this.selectRestaurant} />
           </main>
         </FilterContext.Provider>

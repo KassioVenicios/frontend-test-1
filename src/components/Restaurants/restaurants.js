@@ -22,13 +22,18 @@ class Restaurants extends React.Component {
     text += filter.categories ? filter.categories : 'All';
     text += ' Restaurants ';
     text += filter.price !== filters.default.price ?
-      '(' + priceFilter[filter.price].text + ')' : '';
+      `(${priceFilter[filter.price].text})"` : '';
     return text;
   }
 
+  renderTotal() {
+    return `${this.props.totalResults} results`;
+  }
+
   renderPlaceholder() {
-    return this.arrayFromNumber(filters.default.limit)
-      .map(item => (<RestaurantItemPlaceholder key={item} />));
+    return this.arrayFromNumber(filters.default.limit).map(item => (
+      <RestaurantItemPlaceholder key={item} />
+    ));
   }
 
   renderRestaurants() {
@@ -37,7 +42,7 @@ class Restaurants extends React.Component {
         key={restaurant.id}
         restaurant={restaurant}
         selectRestaurant={this.props.selectRestaurant} />
-    ))
+    ));
   }
 
   renderBoth() {
@@ -56,7 +61,10 @@ class Restaurants extends React.Component {
         <FilterContext.Consumer>
           { filterCtx => (
             <section className='restaurants'>
-              <h2>{this.renderTitle(filterCtx.filters)}</h2>
+              <header>
+                <h2>{this.renderTitle(filterCtx.filters)}</h2>
+                <h4>{this.renderTotal()}</h4>
+              </header>
               <div className='restaurants-list'>
                 {
                   searching ?
