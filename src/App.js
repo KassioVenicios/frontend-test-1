@@ -17,10 +17,17 @@ class App extends React.Component {
     super(props);
 
     this.getRestaurants = searchObj => {
-      businessesSearch(searchObj).then(response => {
+
+      this.setState({
+        ...this.state,
+        searching: true,
+      });
+
+      return businessesSearch(searchObj).then(response => {
         if (searchObj && searchObj.offset > 0) {
           this.setState({
             ...this.state,
+            searching: false,
             restaurants: [
               ...this.state.restaurants,
               ...response.data.businesses
@@ -29,6 +36,7 @@ class App extends React.Component {
         } else {
           this.setState({
             ...this.state,
+            searching: false,
             restaurants: response.data.businesses,
           });
         }
@@ -36,10 +44,11 @@ class App extends React.Component {
     }
 
     this.changeFilters = searchObj => {
-      this.getRestaurants(searchObj);
-      this.setState({
-        ...this.state,
-        filters: searchObj,
+      this.getRestaurants(searchObj).then(() => {
+        this.setState({
+          ...this.state,
+          filters: searchObj,
+        });
       });
     }
 
@@ -58,6 +67,7 @@ class App extends React.Component {
       filters: deepCopy(filters.default),
       changeFilters: this.changeFilters,
       selectedRestaurant: null,
+      searching: true,
     };
   }
 
@@ -77,6 +87,7 @@ class App extends React.Component {
             <Header />
             <FilterNav />
             <Restaurants
+              searching={this.state.searching}
               restaurants={this.state.restaurants}
               selectRestaurant={this.selectRestaurant} />
           </main>

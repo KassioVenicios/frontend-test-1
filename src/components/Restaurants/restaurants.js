@@ -1,5 +1,6 @@
 import React from 'react';
 import RestaurantItem from '../RestaurantItem/restaurant-item';
+import RestaurantItemPlaceholder from '../RestaurantItemPlaceholder/restaurant-item-placeholder';
 import { FilterContext, filters } from '../../utils/filter-context';
 import { priceFilter } from '../../utils/filter-context';
 import './restaurants.style.css';
@@ -7,7 +8,7 @@ import './restaurants.style.css';
 class Restaurants extends React.Component {
 
   render() {
-    const { restaurants, selectRestaurant } = this.props;
+    const { searching, restaurants, selectRestaurant } = this.props;
     return (
       <section className='container'>
         <section className='restaurants'>
@@ -25,7 +26,11 @@ class Restaurants extends React.Component {
             )}
           </FilterContext.Consumer>
           <div className='restaurants-list'>
-          {
+          { searching ?
+            Array.from(Array(8).keys()).map(item => (
+              <RestaurantItemPlaceholder key={item} />
+            ))
+            :
             restaurants.map(restaurant => (
               <RestaurantItem
                 key={restaurant.id}
