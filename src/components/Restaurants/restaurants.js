@@ -7,50 +7,72 @@ import './restaurants.style.css';
 
 class Restaurants extends React.Component {
 
+  arrayFromNumber(n) {
+    return Array.from(Array(n).keys());
+  }
+
+  loadMore(filterCtx) {
+    let filters = filterCtx.filters;
+    filters.offset += filters.limit;
+    filterCtx.changeFilters(filters, true);
+  }
+
+  renderTitle(filter) {
+    let text = '';
+    text += filter.categories ? filter.categories : 'All';
+    text += ' Restaurants ';
+    text += filter.price !== filters.default.price ?
+      '(' + priceFilter[filter.price].text + ')' : '';
+    return text;
+  }
+
+  renderPlaceholder() {
+    return this.arrayFromNumber(filters.default.limit)
+      .map(item => (<RestaurantItemPlaceholder key={item} />));
+  }
+
+  renderRestaurants() {
+    return this.props.restaurants.map(restaurant => (
+      <RestaurantItem
+        key={restaurant.id}
+        restaurant={restaurant}
+        selectRestaurant={this.props.selectRestaurant} />
+    ))
+  }
+
+  renderBoth() {
+    return (
+      <>
+        <>{this.renderRestaurants()}</>
+        <>{this.renderPlaceholder()}</>
+      </>
+    );
+  }
+
   render() {
-    const { searching, restaurants, selectRestaurant } = this.props;
+    const { loadMore, searching } = this.props;
     return (
       <section className='container'>
-        <section className='restaurants'>
-          <FilterContext.Consumer>
-            { filterCtx => (
-              <h2>
-              {
-                filterCtx.filters.categories ?
-                filterCtx.filters.categories : 'All'
-              } Restaurants {
-                filterCtx.filters.price !== filters.default.price ?
-                '(' + priceFilter[filterCtx.filters.price].text + ')' : ''
-              }
-              </h2>
-            )}
-          </FilterContext.Consumer>
-          <div className='restaurants-list'>
-          { searching ?
-            Array.from(Array(8).keys()).map(item => (
-              <RestaurantItemPlaceholder key={item} />
-            ))
-            :
-            restaurants.map(restaurant => (
-              <RestaurantItem
-                key={restaurant.id}
-                restaurant={restaurant}
-                selectRestaurant={selectRestaurant} />
-            ))
-          }
-          </div>
-          <FilterContext.Consumer>
-            { filterCtx => (
-              <div className='load-more' onClick={() => {
-                let filters = filterCtx.filters;
-                filters.offset += filters.limit;
-                filterCtx.changeFilters(filters);
-              }}>
+        <FilterContext.Consumer>
+          { filterCtx => (
+            <section className='restaurants'>
+              <h2>{this.renderTitle(filterCtx.filters)}</h2>
+              <div className='restaurants-list'>
+                {
+                  searching ?
+                    this.renderPlaceholder() :
+                    loadMore ?
+                      this.renderBoth() :
+                      this.renderRestaurants()
+                }
+              </div>
+              <div className='load-more'
+                onClick={() => this.loadMore(filterCtx)}>
                 Load More
               </div>
-            )}
-          </FilterContext.Consumer>
-        </section>
+            </section>
+          )}
+        </FilterContext.Consumer>
       </section>
     );
   }
