@@ -1,7 +1,7 @@
 import React from 'react';
 import StarRatings from '../StarRatings/star-ratings';
-import RestaurantReviews from '../RestaurantReviews';
-import './style.css';
+import RestaurantReviews from '../RestaurantReviews/restaurant-reviews';
+import './restaurant-detail.style.css';
 
 function RestaurantDetail({ restaurant }) {
   return (

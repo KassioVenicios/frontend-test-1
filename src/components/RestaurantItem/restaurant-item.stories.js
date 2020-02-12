@@ -1,5 +1,5 @@
 import React from 'react';
-import RestaurantItem from './index';
+import RestaurantItem from './restaurant-item';
 
 export default {
   component: RestaurantItem,

@@ -1,7 +1,7 @@
 import React from 'react';
 import StarRatings from '../StarRatings/star-ratings';
 import { businessesDetail, businessesReviews } from '../../services/api';
-import './style.css';
+import './restaurant-item.style.css';
 
 function RestaurantItem({ restaurant, selectRestaurant }) {
 

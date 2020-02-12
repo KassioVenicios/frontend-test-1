@@ -1,6 +1,6 @@
 import React from 'react';
 import StarRatings from '../StarRatings/star-ratings';
-import './style.css';
+import './restaurant-reviews.style.css';
 
 function RestaurantReviews({ reviews }) {
 

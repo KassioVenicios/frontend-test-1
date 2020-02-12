@@ -1,5 +1,5 @@
 import React from 'react';
-import RestaurantReviews from './index';
+import RestaurantReviews from './restaurant-reviews';
 
 export default {
   component: RestaurantReviews,

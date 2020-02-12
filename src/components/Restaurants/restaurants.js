@@ -1,5 +1,5 @@
 import React from 'react';
-import RestaurantItem from '../RestaurantItem';
+import RestaurantItem from '../RestaurantItem/restaurant-item';
 import { FilterContext, filters } from '../../utils/filter-context';
 import { priceFilter } from '../../utils/filter-context';
 import './restaurants.style.css';
