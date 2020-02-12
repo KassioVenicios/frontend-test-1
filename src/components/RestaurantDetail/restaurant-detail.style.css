@@ -56,7 +56,7 @@ section.location .map {
   width: 50%;
   height: 230px;
   position: relative;
-  background-image: url(../../imgs/map.png);
+  background-image: url(../../assets/img/map.png);
 }
 
 section.location .map span.location-name {

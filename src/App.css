@@ -2,7 +2,7 @@
   font-family: 'Helvetica Neue';
   font-style: normal;
   font-weight: 400;
-  src: local('Helvetica Neue') url('./fonts/helvetica-neue.ttf') format('truetype');
+  src: local('Helvetica Neue') url('./assets/fonts/helvetica-neue.ttf') format('truetype');
 }
 
 body {

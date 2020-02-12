@@ -6,7 +6,7 @@ import RestaurantDetail from './components/RestaurantDetail/restaurant-detail';
 import { businessesSearch } from './services/api';
 import { FilterContext, filters } from './utils/filter-context';
 import deepCopy from './utils/deepCopy';
-import './fonts/helvetica-neue.ttf';
+import './assets/fonts/helvetica-neue.ttf';
 import './App.css';
 import './Main.css';
 import './Checkbox.css';
