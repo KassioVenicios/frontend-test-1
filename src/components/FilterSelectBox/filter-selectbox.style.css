@@ -28,6 +28,11 @@ div.select-box:before {
   right: 0;
 }
 
+div.select-box:hover:before {
+  content: '\02F0';
+  color: #999;
+}
+
 div.select-box div.dropdown {
   z-index: 1;
   width: 100%;
