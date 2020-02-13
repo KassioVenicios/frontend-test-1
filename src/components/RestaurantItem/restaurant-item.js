@@ -5,6 +5,13 @@ import './restaurant-item.style.css';
 
 export default class RestaurantItem extends React.Component {
 
+  renderIsOpen(restaurant) {
+    return restaurant.hours[0].is_open_now ?
+      <span className='right open'>open now</span> :
+      <span className='right closed'>closed</span>
+    ;
+  }
+
   render() {
     const { restaurant } = this.props;
     return (
@@ -16,11 +23,11 @@ export default class RestaurantItem extends React.Component {
         <StarRatings rating={restaurant.rating}/>
         <div className='restaurant-info'>
           <span>
-            {restaurant.categories[0].title}&nbsp;•&nbsp;{restaurant.price}
+            {restaurant.categories[0].title}
+            &nbsp;•&nbsp;
+            {restaurant.price}
           </span>
-          <span className={!restaurant.is_closed ? 'right open' : 'right closed' }>
-            {!restaurant.is_closed ? 'open now' : 'closed'}
-          </span>
+          {this.renderIsOpen(restaurant)}
         </div>
         <Link to={{
           pathname: '/details',
@@ -39,5 +46,5 @@ const styles = restaurant => ({
   width: '100%',
   height: '100%',
   backgroundSize: 'cover',
-  backgroundImage: `url(${restaurant.image_url})`,
+  backgroundImage: `url(${restaurant.photos[0]})`,
 });
