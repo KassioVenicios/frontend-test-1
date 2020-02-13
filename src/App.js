@@ -3,7 +3,7 @@ import Header from './components/Header/header';
 import FilterNav from './components/FilterNav/filter-nav';
 import Restaurants from './components/Restaurants/restaurants';
 import RestaurantDetail from './components/RestaurantDetail/restaurant-detail';
-import { businessesSearch } from './services/api';
+import { businessesSearch } from './services/graphql';
 import { FilterContext, filters } from './utils/filter-context';
 import deepCopy from './utils/deepCopy';
 import './assets/fonts/helvetica-neue.ttf';

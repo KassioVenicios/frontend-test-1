@@ -6,7 +6,10 @@
     "build-storybook": "build-storybook -c .storybook -o .out"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.3",
+    "apollo-boost": "^0.4.7",
     "axios": "^0.19.2",
+    "graphql": "^14.6.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",
