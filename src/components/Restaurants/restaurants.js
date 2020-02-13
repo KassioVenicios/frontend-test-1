@@ -36,19 +36,31 @@ class Restaurants extends React.Component {
     ));
   }
 
-  renderRestaurants() {
-    return this.props.restaurants.map(restaurant => (
-      <RestaurantItem
-        key={restaurant.id}
-        restaurant={restaurant}
-        selectRestaurant={this.props.selectRestaurant} />
-    ));
+  renderRestaurants(isLoading) {
+    return (
+      <>
+        {this.props.restaurants.map(restaurant => (
+          <RestaurantItem
+            key={restaurant.id}
+            restaurant={restaurant}
+            selectRestaurant={this.props.selectRestaurant} />
+        ))}
+        {! isLoading ?
+          <>
+            <div style={{ width: '22%', height: 0 }} />
+            <div style={{ width: '22%', height: 0 }} />
+            <div style={{ width: '22%', height: 0 }} />
+          </>
+          : null
+        }
+      </>
+    );
   }
 
   renderBoth() {
     return (
       <>
-        <>{this.renderRestaurants()}</>
+        <>{this.renderRestaurants(true)}</>
         <>{this.renderPlaceholder()}</>
       </>
     );
@@ -71,7 +83,7 @@ class Restaurants extends React.Component {
                     this.renderPlaceholder() :
                     loadMore ?
                       this.renderBoth() :
-                      this.renderRestaurants()
+                      this.renderRestaurants(false)
                 }
               </div>
               <div className='load-more'
