@@ -22,7 +22,7 @@ class Restaurants extends React.Component {
     text += filter.categories ? filter.categories : 'All';
     text += ' Restaurants ';
     text += filter.price !== filters.default.price ?
-      `(${priceFilter[filter.price].text})"` : '';
+      `(${priceFilter[filter.price].text})` : '';
     return text;
   }
 
