@@ -2,6 +2,7 @@ import React from 'react';
 import StarRatings from '../StarRatings/star-ratings';
 import RestaurantReviews from '../RestaurantReviews/restaurant-reviews';
 import { businessesDetail, businessesReviews } from '../../services/api';
+import RestaurantDetailPlaceholder from '../RestaurantDetailPlaceholder/restaurant-detail-placeholder';
 import './restaurant-detail.style.css';
 
 export default class RestaurantDetail extends React.Component {
@@ -67,7 +68,7 @@ export default class RestaurantDetail extends React.Component {
         </section>
         <RestaurantReviews reviews={restaurant.reviews}/>
         </>
-        : null
+        : <RestaurantDetailPlaceholder />
       }</>
     );
   }

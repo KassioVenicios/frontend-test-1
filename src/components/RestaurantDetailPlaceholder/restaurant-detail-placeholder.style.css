@@ -1,0 +1,134 @@
+section.location-placeholder,
+div.container header.restaurant-placeholder,
+section.reviews-placeholder {
+  opacity: .1;
+  animation: fading 1s infinite;
+}
+
+section.location-placeholder *,
+div.container header.restaurant-placeholder *,
+section.reviews-placeholder * {
+  border-radius: 12px;
+}
+
+header.restaurant-placeholder div.restaurant-name {
+  width: 60%;
+  height: 56px;
+  margin: 32px 0 16px;
+  background-color: #666;
+}
+
+header.restaurant-placeholder div.restaurant-rating {
+  width: 20%;
+  height: 42px;
+  margin: 0 0 16px;
+  background-color: #006b96;
+}
+
+header.restaurant-placeholder div.restaurant-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0 32px 0;
+}
+
+header.restaurant-placeholder div.restaurant-info span {
+  width: 25%;
+  height: 32px;
+  background-color: #d8d8d8;
+}
+
+header.restaurant-placeholder div.restaurant-info span.right {
+  width: 15%;
+  float: right;
+  background-color: #00e8a4;
+}
+
+section.location-placeholder {
+  padding: 48px 0 92px;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+section.location-placeholder .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+section.location-placeholder .map {
+  width: 50%;
+  height: 230px;
+  position: relative;
+  background-image: url(../../assets/img/map.png);
+}
+
+section.location-placeholder .map span.location-name {
+  position: absolute;
+  bottom: -40px;
+  height: 28px;
+  width: 60%;
+  background-color: #333;
+}
+
+section.location-placeholder figure {
+  margin: 0;
+  width: 22%;
+  height: 230px;
+  background-color: #d6d6d6;
+}
+
+section.reviews-placeholder {
+  padding: 32px 0;
+}
+
+section.reviews-placeholder div.counter {
+  width: 15%;
+  height: 32px;
+  background-color: #666;
+}
+
+section.reviews-placeholder div.review {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 48px 0 64px;
+}
+
+section.reviews-placeholder div.review div.reviewer {
+  width: 25%;
+  display: flex;
+}
+
+section.reviews-placeholder div.review div.reviewer figure {
+  margin: 0;
+  width: 80px;
+  height: 80px;
+  background-color: #d8d8d8;
+}
+
+section.reviews-placeholder div.review div.reviewer div.reviewer-info {
+  width: 100%;
+  margin-left: 32px;
+}
+
+section.reviews-placeholder div.review div.reviewer div.reviewer-info div.reviewer-name {
+  width: 40%;
+  height: 24px;
+  margin-bottom: 8px;
+  background-color: #333;
+}
+
+section.reviews-placeholder div.review div.reviewer div.reviewer-info div.reviewer-date {
+  width: 30%;
+  height: 18px;
+  background-color: #666;
+}
+
+section.reviews-placeholder div.review div.review-body {
+  width: 75%;
+}
+
+section.reviews-placeholder div.review div.review-body div.message {
+  height: 56px;
+  margin: 24px 0;
+  margin-top: 16px;
+  background-color: #333;
+}

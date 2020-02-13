@@ -39,7 +39,7 @@ article.restaurant-placeholder div.restaurant-info {
 article.restaurant-placeholder div.restaurant-info span {
   width: 30%;
   height: 24px;
-  background-color: #d8d8d8
+  background-color: #d8d8d8;
 }
 
 article.restaurant-placeholder div.restaurant-info span.right {
@@ -53,18 +53,4 @@ article.restaurant-placeholder div.learn-more {
   height: 32px;
   position: absolute;
   background-color: #002b56;
-}
-
-@keyframes fading {
-  0% {
-    opacity: .1;
-  }
-  
-  50% {
-    opacity: .2;
-  }
-  
-  100% {
-    opacity: .1;
-  }
 }

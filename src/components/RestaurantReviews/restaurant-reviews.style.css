@@ -37,6 +37,7 @@ section.reviews div.review div.reviewer div.reviewer-info div.reviewer-name {
   font-size: 22px;
   letter-spacing: 0.92px;
   line-height: 24px;
+  margin-bottom: 8px;
 }
 
 section.reviews div.review div.reviewer div.reviewer-info div.reviewer-date {
