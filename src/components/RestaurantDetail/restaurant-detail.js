@@ -35,9 +35,11 @@ export default class RestaurantDetail extends React.Component {
   }
 
   renderIsOpen(restaurant) {
-    return restaurant.hours[0].is_open_now ?
-      <span className='right open'>open now</span> :
-      <span className='right closed'>closed</span>
+    return restaurant.hours &&
+           restaurant.hours[0] &&
+           restaurant.hours[0].is_open_now ?
+           <span className='right open'>open now</span> :
+           <span className='right closed'>closed</span>
     ;
   }
 
