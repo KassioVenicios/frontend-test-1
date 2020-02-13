@@ -28,7 +28,10 @@ export default class RestaurantDetail extends React.Component {
   }
 
   componentDidMount() {
-    this.restaurantDetail(this.props.location.state.id);
+    if(this.props.location &&
+       this.props.location.state &&
+       this.props.location.state.id)
+       this.restaurantDetail(this.props.location.state.id);
   }
 
   render() {
