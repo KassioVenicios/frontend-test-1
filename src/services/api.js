@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { filters } from '../utils/filter-context';
+import { filters, getSearchObj } from '../utils/filter-context';
 
 const yelp = 'http://api.yelp.com/v3';
 const proxy = 'https://cors-anywhere.herokuapp.com';
-const token = 'Bearer av1sVZCD8sdwINxL1hzKwi-819wCFfxJqkZ1Dce6EUhpAndRBnsevcHV64tZllja7jgSdbIhc_mf8kWSAvec96E1CpLPBATWwmt77y3iu3i5BddxRVTiUFEPTf0_XnYx';
+const token = 'Bearer FrMt4A8sfoHbuG5xqQaCcbmRaTUPmn2lIJECj2amc4E9S4EXTzLknjOwi2FMRtw-Ez50-PeomcTOZPMZgT3fkTUU1DlpMX4eeuIw46YNjc5H_ysyzcnWZgr7WntFXnYx';
 
 const api = axios.create({
   baseURL: `${proxy}/${yelp}`,
@@ -39,16 +39,7 @@ export const categoriesSearch = async () => {
 };
 
 export const businessesSearch = async searchObj => {
-  searchObj = searchObj || {};
-  const searchParams = {
-    term: searchObj.term || filters.default.term,
-    location: searchObj.location || filters.default.location,
-    open_now: searchObj.open_now || filters.default.open_now,
-    limit: searchObj.limit || filters.default.limit,
-    price: searchObj.price || filters.default.price,
-    categories: searchObj.categories || filters.default.categories,
-    offset: searchObj.offset || filters.default.offset,
-  };
+  const searchParams = getSearchObj(searchObj);
   try {
     let url = 'businesses/search';
     url = url.concat(`?term=${searchParams.term}`);
