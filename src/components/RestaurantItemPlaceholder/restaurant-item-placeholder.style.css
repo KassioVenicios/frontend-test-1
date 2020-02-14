@@ -54,3 +54,48 @@ article.restaurant-placeholder div.learn-more {
   position: absolute;
   background-color: #002b56;
 }
+
+@media (max-width: 1000px) {
+  article.restaurant-placeholder {
+    width: 30%;
+  }
+}
+
+@media (max-width: 800px) {
+  article.restaurant-placeholder {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  article.restaurant-placeholder {
+    width: 100%;
+    display: flex;
+  }
+
+  article.restaurant-placeholder .mobile {
+    flex: 1;
+  }
+
+  article.restaurant-placeholder figure {
+    margin: 0;
+    height: auto;
+    min-width: 150px;
+    margin-right: 16px;
+  }
+
+  article.restaurant-placeholder div.restaurant-name {
+    margin-bottom: 8px;
+  }
+
+  article.restaurant-placeholder div.restaurant-info {
+    margin: 8px 0 48px 0;
+  }
+
+  article.restaurant-placeholder div.learn-more {
+    width: 30%;
+    height: 16px;
+    background-color: #446b96;
+    bottom: 16px;
+  }
+}
