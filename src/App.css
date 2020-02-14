@@ -12,7 +12,13 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 80%;
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 90%;
+  }
 }
 
 .modal {
