@@ -1,5 +1,5 @@
 header.container > h1 {
-  color: #333333;
+  color: #333;
   line-height: 64px;
   letter-spacing: 0.96px;
   font-size: 54px;
@@ -8,11 +8,28 @@ header.container > h1 {
 }
 
 header.container > h2 {
-  width: 800px;
-  color: #666666;
+  padding-right: 16%;
+  color: #666;
   line-height: 32px;
   letter-spacing: 0.92px;
   font-size: 22px;
   font-weight: 300;
   margin: 32px 0;
+}
+
+@media (max-width: 800px) {
+
+  header.container > h1 {
+    font-size: 32px;
+    line-height: 40px;
+    margin: 42px 0 8px;
+  }
+
+  header.container > h2 {
+    padding: 0;
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 0 32px;
+  }
 }
