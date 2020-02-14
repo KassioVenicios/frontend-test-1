@@ -80,6 +80,6 @@ section.restaurants .load-more:hover {
 
 @media (max-width: 600px) {
   section.restaurants .load-more {
-    width: 90%;
+    width: 60%;
   }
 }

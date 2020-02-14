@@ -2,6 +2,7 @@ import React from 'react';
 import StarRatings from '../StarRatings/star-ratings';
 import { Link } from 'react-router-dom';
 import './restaurant-item.style.css';
+import { limitedString } from '../../utils/limitedString';
 
 export default class RestaurantItem extends React.Component {
 
@@ -23,7 +24,7 @@ export default class RestaurantItem extends React.Component {
         </figure>
         <div className='mobile'>
           <div className='restaurant-name'>
-            {restaurant.name}
+            {limitedString(restaurant.name)}
           </div>
           <StarRatings rating={restaurant.rating}/>
           <div className='restaurant-info'>
