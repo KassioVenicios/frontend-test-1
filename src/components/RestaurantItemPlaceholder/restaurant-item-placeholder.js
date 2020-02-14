@@ -7,13 +7,15 @@ class RestaurantItemPlaceholder extends React.Component {
     return (
       <article className='restaurant-placeholder'>
         <figure />
-        <div className='restaurant-name' />
-        <div className='restaurant-rating' />
-        <div className='restaurant-info'>
-          <span />
-          <span className='right' />
+        <div className='mobile'>
+          <div className='restaurant-name' />
+          <div className='restaurant-rating' />
+          <div className='restaurant-info'>
+            <span />
+            <span className='right' />
+          </div>
+          <div className='learn-more' />
         </div>
-        <div className='learn-more' />
       </article>
     );
   }
