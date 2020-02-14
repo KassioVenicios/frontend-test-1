@@ -49,9 +49,16 @@ article.restaurant div.restaurant-info span.right:before {
 article.restaurant div.restaurant-info span.right.open:before {
   background-color: #00e8a4;
 }
+article.restaurant div.restaurant-info span.right.open:after {
+  content: 'open now';
+}
 
 article.restaurant div.restaurant-info span.right.closed:before {
   background-color: #ff3548;
+}
+
+article.restaurant div.restaurant-info span.right.closed:after {
+  content: 'closed';
 }
 
 article.restaurant div.learn-more {
@@ -79,4 +86,91 @@ article.restaurant div.learn-more span {
   line-height: 16px;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+@media (max-width: 1000px) {
+  article.restaurant {
+    width: 30%;
+  }
+}
+
+@media (max-width: 800px) {
+  article.restaurant {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  article.restaurant {
+    width: 100%;
+    display: flex;
+  }
+
+  article.restaurant .mobile {
+    flex: 1;
+  }
+
+  article.restaurant figure {
+    min-width: 150px;
+    height: auto;
+    margin: 0;
+    margin-right: 16px;
+  }
+
+  article.restaurant div.restaurant-name {
+    margin-bottom: 8px;
+  }
+
+  article.restaurant div.restaurant-info {
+    margin: 8px 0 48px 0;
+  }
+
+  article.restaurant div.restaurant-info span.right:before {
+    content: '';
+    width: 0;
+    height: 0;
+  }
+
+  article.restaurant div.restaurant-info span.right:after {
+    padding: 4px 8px;
+    border-radius: 8px;
+    line-height: 8px;
+    font-size: 8px;
+    display: inline-block;
+  }
+
+  article.restaurant div.restaurant-info span.right.open:after {
+    content: 'open';
+    color: #002b56;
+    background-color: #00e8a4;
+  }
+  
+  article.restaurant div.restaurant-info span.right.closed:after {
+    content: 'closed';
+    color: #fff;
+    background-color: #ff3548;
+  }
+
+  article.restaurant div.learn-more {
+    width: auto;
+    height: 32px;
+    padding: 8px;
+    background-color: #fff;
+  }
+  
+  article.restaurant div.learn-more:hover {
+    background-color: #fff;
+  }
+  
+  article.restaurant div.learn-more span {
+    text-align: left;
+    color: #002b56;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  article.restaurant div.learn-more span:after {
+    content: '\0020\2794';
+    color: #002b56;
+    font-size: 16px;
+  }
 }

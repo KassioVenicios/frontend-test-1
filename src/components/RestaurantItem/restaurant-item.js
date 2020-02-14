@@ -9,8 +9,8 @@ export default class RestaurantItem extends React.Component {
     return restaurant.hours &&
            restaurant.hours[0] &&
            restaurant.hours[0].is_open_now ?
-           <span className='right open'>open now</span> :
-           <span className='right closed'>closed</span>
+           <span className='right open' /> :
+           <span className='right closed' />
     ;
   }
 
@@ -21,24 +21,28 @@ export default class RestaurantItem extends React.Component {
         <figure>
           <div style={styles(restaurant)}></div>
         </figure>
-        <div className='restaurant-name'>{restaurant.name}</div>
-        <StarRatings rating={restaurant.rating}/>
-        <div className='restaurant-info'>
-          <span>
-            {restaurant.categories[0].title}
-            &nbsp;•&nbsp;
-            {restaurant.price}
-          </span>
-          {this.renderIsOpen(restaurant)}
-        </div>
-        <Link to={{
-          pathname: '/details',
-          state: { id: restaurant.id}
-        }}>
-          <div className='learn-more'>
-            <span>Learn More</span>
+        <div className='mobile'>
+          <div className='restaurant-name'>
+            {restaurant.name}
           </div>
-        </Link>
+          <StarRatings rating={restaurant.rating}/>
+          <div className='restaurant-info'>
+            <span>
+              {restaurant.categories[0].title}
+              &nbsp;•&nbsp;
+              {restaurant.price}
+            </span>
+            {this.renderIsOpen(restaurant)}
+          </div>
+          <Link to={{
+            pathname: '/details',
+            state: { id: restaurant.id}
+          }}>
+            <div className='learn-more'>
+              <span>Learn More</span>
+            </div>
+          </Link>
+        </div>
       </article>
     );
   }

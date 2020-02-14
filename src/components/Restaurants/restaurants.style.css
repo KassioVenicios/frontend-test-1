@@ -56,3 +56,30 @@ section.restaurants .load-more:hover {
   transition: background-color .4s;
   background-color: #f8f8f8;
 }
+
+@media (max-width: 800px) {
+
+  section.restaurants header {
+    flex-direction: column;
+  }
+
+  section.restaurants h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  section.restaurants h4 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  section.restaurants .load-more {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  section.restaurants .load-more {
+    width: 90%;
+  }
+}
