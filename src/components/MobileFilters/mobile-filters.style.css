@@ -1,0 +1,108 @@
+.filter-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-header .title {
+  height: 24px;
+  color: #606060;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.filter-header .close {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background-position: center;
+  background-image: url(../../assets/img/close.png);
+}
+
+.filter-buttons {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.filter-buttons > * {
+  width: 48%;
+}
+
+.filter-body {
+  padding: 0 24px;
+}
+
+.filter-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24px 0;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.filter-title {
+  color: #000;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.86px;
+  line-height: 16px;
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+}
+
+.filter-price {
+  width: 100%;
+  height: 40px;
+  border-radius: 2px;
+}
+
+.filter-price table {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+}
+
+.filter-price th {
+  width: 20%;
+  padding: 8px;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  border: 1px solid #e6e6e6;
+  background-color: #ffffff;
+  display: inline-block;
+  color: #000;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 16px;
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.filter-subtitle {
+  height: 16px;
+  color: #cdcdcd;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.44px;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.filter-content.categories {
+  border: none;
+}

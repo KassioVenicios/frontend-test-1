@@ -1,6 +1,7 @@
 import App from './App';
 import Root from './Root';
 import RestaurantDetail from './components/RestaurantDetail/restaurant-detail';
+import MobileFilters from './components/MobileFilters/mobile-filters';
 
 export const routes = [
   {
@@ -15,6 +16,11 @@ export const routes = [
         path: '/details',
         exact: true,
         component: RestaurantDetail
+      },
+      {
+        path: '/filters',
+        exact: true,
+        component: MobileFilters
       }
     ]
   }

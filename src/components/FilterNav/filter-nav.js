@@ -5,6 +5,7 @@ import FilterPrice from '../FilterPrice/filter-price';
 import FilterCategories from '../FilterCategories/filter-categories';
 import FilterSelectBox from '../FilterSelectBox/filter-selectbox';
 import './filter-nav.style.css';
+import { Link } from 'react-router-dom';
 
 class FilterNav extends React.Component {
 
@@ -41,11 +42,13 @@ class FilterNav extends React.Component {
                 <FilterClear />
               </>
               :
-              <FilterSelectBox
-                width={'50%'}
-                placeholder='All'
-                datasource={[]}
-              />
+              <Link to='/filters'>
+                <FilterSelectBox
+                  width={'100px'}
+                  placeholder='All'
+                  datasource={[]}
+                />
+              </Link>
             }
           </div>
         </div>
