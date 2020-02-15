@@ -3,9 +3,29 @@ import FilterClear from '../FilterClear/filter-clear';
 import FilterOpenNow from '../FilterOpenNow/filter-open-now';
 import FilterPrice from '../FilterPrice/filter-price';
 import FilterCategories from '../FilterCategories/filter-categories';
+import FilterSelectBox from '../FilterSelectBox/filter-selectbox';
 import './filter-nav.style.css';
 
 class FilterNav extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { width: 0, height: 0 };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
 
   render() {
     return (
@@ -13,10 +33,20 @@ class FilterNav extends React.Component {
         <div className='container'>
           <div className='content'>
             <span className='by'>Filter By:</span>
-            <FilterOpenNow />
-            <FilterPrice />
-            <FilterCategories />
-            <FilterClear />
+            { this.state.width > 800 ?
+              <>
+                <FilterOpenNow />
+                <FilterPrice />
+                <FilterCategories />
+                <FilterClear />
+              </>
+              :
+              <FilterSelectBox
+                width={'50%'}
+                placeholder='All'
+                datasource={[]}
+              />
+            }
           </div>
         </div>
       </nav>

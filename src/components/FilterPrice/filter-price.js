@@ -8,7 +8,7 @@ class FilterPrice extends React.Component {
   render() {
     return (
       <FilterSelectBox
-        width={120}
+        width={100}
         placeholder='Price'
         datasource={priceFilter}
       />

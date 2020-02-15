@@ -28,7 +28,7 @@ class FilterCategories extends React.Component {
       {
         this.state.categories.length > 0 ?
           <FilterSelectBox
-            width={280}
+            width={200}
             placeholder='Categories'
             datasource={this.state.categories}
           />
