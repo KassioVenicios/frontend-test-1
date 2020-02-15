@@ -197,4 +197,18 @@ section.reviews-placeholder div.review div.review-body div.message {
     height: 230px;
     background-color: #d6d6d6;
   }
+
+  section.reviews-placeholder div.review {
+    padding: 16px 0;
+  }
+
+  section.reviews-placeholder div.review div.reviewer {
+    width: 100%;
+    display: flex;
+    margin-bottom: 16px;
+  }
+
+  section.reviews-placeholder div.review div.review-body {
+    width: 100%;
+  }
 }

@@ -13,7 +13,7 @@ section.reviews div.counter {
 section.reviews div.review {
   display: flex;
   flex-wrap: wrap;
-  padding: 48px 0 64px;
+  padding: 32px 0;
 }
 
 section.reviews div.review div.reviewer {
@@ -59,4 +59,21 @@ section.reviews div.review div.review-body div.message {
   line-height: 28px;
   letter-spacing: 1px;
   margin: 24px 0;
+}
+
+@media (max-width: 800px) {
+
+  section.reviews div.review {
+    padding: 16px 0;
+  }
+
+  section.reviews div.review div.reviewer {
+    width: 100%;
+    display: flex;
+    margin-bottom: 16px;
+  }
+
+  section.reviews div.review div.review-body {
+    width: 100%;
+  }
 }
