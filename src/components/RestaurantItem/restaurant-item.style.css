@@ -49,6 +49,7 @@ article.restaurant div.restaurant-info span.right:before {
 article.restaurant div.restaurant-info span.right.open:before {
   background-color: #00e8a4;
 }
+
 article.restaurant div.restaurant-info span.right.open:after {
   content: 'open now';
 }

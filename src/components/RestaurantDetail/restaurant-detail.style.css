@@ -37,12 +37,20 @@ header.restaurant div.restaurant-info span.right.open:before {
   background-color: #00e8a4;
 }
 
+header.restaurant div.restaurant-info span.right.open:after {
+  content: 'open now';
+}
+
 header.restaurant div.restaurant-info span.right.closed:before {
   background-color: #ff3548;
 }
 
+header.restaurant div.restaurant-info span.right.closed:after {
+  content: 'closed';
+}
+
 section.location {
-  padding: 48px 0 92px;
+  padding: 48px 0;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
 }
@@ -52,26 +60,91 @@ section.location .container {
   justify-content: space-between;
 }
 
-section.location .map {
+section.location .map-container {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+section.location .map {
+  width: 100%;
   height: 230px;
-  position: relative;
   background-image: url(../../assets/img/map.png);
 }
 
-section.location .map span.location-name {
-  position: absolute;
-  bottom: -40px;
+section.location span.location-name {
   color: #000;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 28px;
   letter-spacing: 1px;
+  margin-top: 8px;
 }
 
-section.location figure {
+section.location .photos {
+  width: 48%;
+  height: 230px;
+  display: flex;
+  justify-content: space-between;
+}
+
+section.location .photos figure {
   margin: 0;
-  width: 22%;
+  width: 48%;
   height: 230px;
   background-color: #d6d6d6;
+}
+
+@media (max-width: 800px) {
+
+  header.restaurant div.restaurant-name {
+    font-size: 32px;
+    line-height: 32px;
+    margin: 42px 0 16px;
+  }
+
+  header.restaurant div.restaurant-info span {
+    font-size: 16px;
+  }
+
+  header.restaurant div.restaurant-info span.right:before {
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    margin: -3px 8px;
+    line-height: 16px;
+  }
+
+  section.location {
+    padding: 0 0 48px;
+    border-top: none;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  section.location .container {
+    max-width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  section.location .map-container {
+    width: 100%;
+  }
+
+  section.location span.location-name {
+    margin: 16px 5% 32px;
+  }
+
+  section.location .photos {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  section.location .photos figure {
+    margin: 0;
+    width: 48%;
+    height: 230px;
+    background-color: #d6d6d6;
+  }
 }

@@ -38,47 +38,56 @@ export default class RestaurantDetail extends React.Component {
     return restaurant.hours &&
            restaurant.hours[0] &&
            restaurant.hours[0].is_open_now ?
-           <span className='right open'>open now</span> :
-           <span className='right closed'>closed</span>
+           <span className='right open' /> :
+           <span className='right closed' />
     ;
   }
 
   render() {
     const { restaurant } = this.state;
     return (
-      <>{ restaurant ? <>
-        <div className='container'>
-          <header className='restaurant'>
-            <div className='restaurant-name'>
-              {restaurant.name}
-            </div>
-            <StarRatings starDimension='30px' rating={restaurant.rating}/>
-            <div className='restaurant-info'>
-              <span>
-                {restaurant.categories[0].title}&nbsp;•&nbsp;{restaurant.price}
-              </span>
-              {this.renderIsOpen(restaurant)}
-            </div>
-          </header>
-        </div>
-        <section className='location'>
+      <>{ restaurant ?
+        <>
           <div className='container'>
-            <div className='map'>
-              <span className='location-name'>
-                {restaurant.location.display_address.join(' ')}
-              </span>
-            </div>
-            <figure>
-              <div style={styles(restaurant.photos[0])}></div>
-            </figure>
-            <figure>
-            <div style={styles(restaurant.photos[1])}></div>
-            </figure>
+            <header className='restaurant'>
+              <div className='restaurant-name'>
+                {restaurant.name}
+              </div>
+              <StarRatings
+                starDimension='30px'
+                rating={restaurant.rating} />
+              <div className='restaurant-info'>
+                <span>
+                  {restaurant.categories[0].title}
+                  &nbsp;•&nbsp;
+                  {restaurant.price}
+                </span>
+                {this.renderIsOpen(restaurant)}
+              </div>
+            </header>
           </div>
-        </section>
-        <RestaurantReviews reviews={restaurant.reviews}/>
+          <section className='location'>
+            <div className='container'>
+              <div className='map-container'>
+                <div className='map' />
+                <span className='location-name'>
+                  {restaurant.location.display_address.join(' ')}
+                </span>
+              </div>
+              <div className='photos'>
+                <figure>
+                  <div style={styles(restaurant.photos[0])}></div>
+                </figure>
+                <figure>
+                  <div style={styles(restaurant.photos[1])}></div>
+                </figure>
+              </div>
+            </div>
+          </section>
+          <RestaurantReviews reviews={restaurant.reviews}/>
         </>
-        : <RestaurantDetailPlaceholder />
+        :
+        <RestaurantDetailPlaceholder />
       }</>
     );
   }
