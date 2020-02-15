@@ -18,11 +18,14 @@ export default class RestaurantDetailPlaceholder extends React.Component {
         </div>
         <section className='location-placeholder'>
           <div className='container'>
-            <div className='map'>
+            <div className='map-container'>
+              <div className='map' />
               <span className='location-name' />
             </div>
-            <figure />
-            <figure />
+            <div className='photos'>
+              <figure />
+              <figure />
+            </div>
           </div>
         </section>
         <section className='container reviews-placeholder'>
